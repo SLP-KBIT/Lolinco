@@ -18,7 +18,7 @@ image_path = args[1]
 
 cascade_path = '/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_default.xml'
 
-base_dir = '.' + os.path.dirname(__file__) + '/face'
+base_dir = os.path.abspath(os.path.dirname(__file__)) + '/face'
 
 # ファイル読み込み
 image = cv2.imread(image_path)
