@@ -24,9 +24,10 @@ end
 
 post '/' do
   if params[:image]
-    `rm ./public/*.jpg`
-    File.write('./public/image.jpg', params[:image][:tempfile].read)
-    path_list = `python extract_face.py ./public/image.jpg`.chomp.split(',')
+    base_path = './public/image.jpg'
+    File.write(base_path, params[:image][:tempfile].read)
+    path_list = `python extract_face.py #{base_path}`.chomp.split(',')
+    `convert -geometry 384x384 #{base_path} #{base_path}`
     loli_list = []
     path_list.each do |path|
       `convert -geometry 128x128 #{path} #{path}`
@@ -35,6 +36,7 @@ post '/' do
     end
     @is_loli = loli_list.any?
     @image_list = path_list.map { |path| Base64.encode64(File.read(path)) }
+    @base_image = Base64.encode64(File.read(base_path))
   end
   slim :index
 end

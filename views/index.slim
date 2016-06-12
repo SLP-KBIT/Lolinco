@@ -7,7 +7,11 @@ form method="post" enctype="multipart/form-data"
       button.btn.btn-primary ロリ判定
   - if @image_list
     .row
-      - @image_list.each do |image|
-        img src="data:image/jpg;base64,#{image}"
-      = @is_loli
+      .col-sm-6
+        h3 元画像
+        img src="data:image/jpg;base64,#{@base_image}"
+      .col-sm-6
+        h3 抽出した顔
+        - @image_list.each do |image|
+          img src="data:image/jpg;base64,#{image}" style="padding: 10px;"
 
