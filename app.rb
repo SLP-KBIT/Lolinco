@@ -20,3 +20,8 @@ get '/' do
   slim :index
 end
 
+post '/' do
+  p params[:image]
+  slim :index
+end
+
