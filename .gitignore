@@ -2,3 +2,5 @@ face/*
 !face/.keep
 train_img/
 test_img/
+train.txt
+test.txt
