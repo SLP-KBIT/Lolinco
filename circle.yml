@@ -1,0 +1,13 @@
+machine:
+  timezone:
+    Asia/Tokyo
+  ruby:
+    version: 2.2.2
+
+test:
+  pre:
+    - "bower install"
+    - "bundle exec rubocop"
+  override:
+    - "bundle exec rspec --color -f d"
+

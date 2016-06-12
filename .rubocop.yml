@@ -1,0 +1,23 @@
+# 日本語でのコメントを許可
+AsciiComments:
+  Enabled: false
+
+# Module::Classの定義を許可
+ClassAndModuleChildren:
+  Enabled: false
+
+# クラスへのコメントがなくても許す
+Style/Documentation:
+  Enabled: false
+
+# ファイル末尾の改行を許可
+TrailingBlankLines:
+  EnforcedStyle: final_blank_line
+
+AllCops:
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+
+inherit_from: .rubocop_todo.yml
+

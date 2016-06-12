@@ -1,0 +1,16 @@
+engines:
+  rubocop:
+    enabled: true
+  csslint:
+    enabled: false
+  eslint:
+    enabled: false
+ratings:
+  paths:
+    - models/**
+    - "**.rb"
+exclude_paths:
+  - spec/**/*
+  - assets/**/*
+  - vendor/**/*
+

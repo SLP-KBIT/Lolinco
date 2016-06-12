@@ -1,0 +1,22 @@
+{
+  "name": "Lolinco",
+  "homepage": "https://github.com/gembaf/Lolinco",
+  "description": "",
+  "main": "",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.2.0",
+    "bootstrap-sass": "twitter-bootstrap-sass#~3.3.6",
+    "bootswatch-sass": "~3.3.1"
+  }
+}
