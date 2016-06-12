@@ -9,5 +9,6 @@
 /bower_components
 /vendor/bundler/**/*
 /vendor/assets/**/*
+/public/
 !.keep
 

@@ -5,4 +5,9 @@ form method="post" enctype="multipart/form-data"
       input type="file" name="image"
     .col-sm-4
       button.btn.btn-primary ロリ判定
+  - if @image_list
+    .row
+      - @image_list.each do |image|
+        img src="data:image/jpg;base64,#{image}"
+      /= @is_loli
 

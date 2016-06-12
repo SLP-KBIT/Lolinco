@@ -18,7 +18,7 @@ image_path = args[1]
 
 cascade_path = '/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_default.xml'
 
-base_dir = os.path.abspath(os.path.dirname(__file__)) + '/face'
+base_dir = os.path.abspath(os.path.dirname(__file__)) + '/public'
 
 # ファイル読み込み
 image = cv2.imread(image_path)
@@ -43,6 +43,7 @@ if len(facerect) == 0:
 filename = image_path.split("/")[-1]
 path = filename.split(".")
 
+image_path_list = []
 i = 0;
 for rect in facerect:
 	#顔だけ切り出して保存
@@ -52,6 +53,9 @@ for rect in facerect:
 	height = rect[3]
 	dst = image[y:y+height, x:x+width]
 	new_image_path = base_dir + '/' + path[0] + '_' + str(i) + '.' + path[1];
+	image_path_list.append(new_image_path)
 	cv2.imwrite(new_image_path, dst)
 	i += 1
+
+print ','.join(image_path_list)
 
