@@ -1,2 +1,5 @@
+face/*
+!face/.keep
 train_img/
 test_img/
+
