@@ -9,5 +9,5 @@ form method="post" enctype="multipart/form-data"
     .row
       - @image_list.each do |image|
         img src="data:image/jpg;base64,#{image}"
-      /= @is_loli
+      = @is_loli
 

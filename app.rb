@@ -30,14 +30,11 @@ post '/' do
     loli_list = []
     path_list.each do |path|
       `convert -geometry 128x128 #{path} #{path}`
+      status = `python judge_loli.py #{path}`.chomp.to_i
+      loli_list << (status == 1 ? true : false)
     end
-    # path_list.each do |path|
-    #   status = `python judge_loli.py #{path}`.to_i
-    #   loli_list << status == 1 ? true : false
-    # end
-    # @is_loli = loli_list.any?
+    @is_loli = loli_list.any?
     @image_list = path_list.map { |path| Base64.encode64(File.read(path)) }
-    p @image_list
   end
   slim :index
 end
