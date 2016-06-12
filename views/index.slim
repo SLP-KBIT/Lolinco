@@ -7,6 +7,12 @@ form method="post" enctype="multipart/form-data"
       button.btn.btn-primary ロリ判定
   - if @image_list
     .row
+      .col-sm-12
+        div style="text-align: center; color: red"
+          - if @is_loli
+            h1 >>> ロリ <<<
+          - else
+            h1 >>> BBA or 無機物 <<
       .col-sm-6
         h3 元画像
         img src="data:image/jpg;base64,#{@base_image}"
