@@ -90,7 +90,7 @@ if __name__ == '__main__':
 
     saver = tf.train.Saver()
     sess.run(tf.initialize_all_variables())
-    saver.restore(sess, "model.ckpt")
+    saver.restore(sess, "./lib/model.ckpt")
 
     for i in range(len(test_image)):
         pred = np.argmax(logits.eval(feed_dict={

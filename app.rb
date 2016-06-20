@@ -26,12 +26,12 @@ post '/' do
   if params[:image]
     base_path = './public/image.jpg'
     File.write(base_path, params[:image][:tempfile].read)
-    path_list = `python extract_face.py #{base_path}`.chomp.split(',')
+    path_list = `python lib/extract_face.py #{base_path}`.chomp.split(',')
     `convert -geometry 384x384 #{base_path} #{base_path}`
     loli_list = []
     path_list.each do |path|
       `convert -geometry 128x128 #{path} #{path}`
-      status = `python judge_loli.py #{path}`.chomp.to_i
+      status = `python lib/judge_loli.py #{path}`.chomp.to_i
       loli_list << (status == 1 ? true : false)
     end
     @is_loli = loli_list.any?
