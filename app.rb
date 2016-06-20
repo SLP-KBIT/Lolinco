@@ -28,14 +28,13 @@ post '/' do
     File.write(base_path, params[:image][:tempfile].read)
     path_list = `python lib/extract_face.py #{base_path}`.chomp.split(',')
     `convert -geometry 384x384 #{base_path} #{base_path}`
-    loli_list = []
+    @image_list = {}
     path_list.each do |path|
       `convert -geometry 128x128 #{path} #{path}`
+      image = Base64.encode64(File.read(path))
       status = `python lib/judge_loli.py #{path}`.chomp.to_i
-      loli_list << (status == 1 ? true : false)
+      @image_list[image] = (status == 1 ? true : false)
     end
-    @is_loli = loli_list.any?
-    @image_list = path_list.map { |path| Base64.encode64(File.read(path)) }
     @base_image = Base64.encode64(File.read(base_path))
   end
   slim :index
