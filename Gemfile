@@ -12,17 +12,17 @@ gem 'coffee-script'
 group :development, :test do
   gem 'sinatra-contrib'
   gem 'foreman'
-  gem 'rubocop'
+  # gem 'rubocop'
 
   # Test
-  gem 'rspec'
-  gem 'capybara'
-  gem 'rack-test'
-  gem 'poltergeist'
-  gem 'factory_girl'
+  # gem 'rspec'
+  # gem 'capybara'
+  # gem 'rack-test'
+  # gem 'poltergeist'
+  # gem 'factory_girl'
 end
 
 group :test do
-  gem 'codeclimate-test-reporter', require: false
+  # gem 'codeclimate-test-reporter', require: false
 end
 
