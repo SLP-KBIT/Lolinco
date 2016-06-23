@@ -5,22 +5,22 @@ form method="post" enctype="multipart/form-data"
       input type="file" name="image"
     .col-sm-4
       button.btn.btn-primary ロリ判定
-  - if @image_list
-    .row
-      .col-sm-12
-        div style="text-align: center; color: red"
-          - if @image_list.values.any?
-            h1 >>> ロリ <<<
-          - else
-            h1 >>> BBA or 無機物 <<
-      .col-sm-6
-        h3 元画像
-        img src="data:image/jpg;base64,#{@base_image}"
-      .col-sm-6
-        h3 抽出した顔
-        - @image_list.each do |path, status|
-          - if status
-            img.loli src="data:image/jpg;base64,#{path}"
-          - else
-            img src="data:image/jpg;base64,#{path}"
+- if @image_list
+  .row
+    .col-sm-12
+      div style="text-align: center; color: red"
+        - if @image_list.values.any?
+          img src="/assets/loli.jpg"
+        - else
+          img src="/assets/no_loli.jpg"
+    .col-sm-6
+      h3 元画像
+      img src="data:image/jpg;base64,#{@base_image}"
+    .col-sm-6
+      h3 抽出した顔
+      - @image_list.each do |path, status|
+        - if status
+          img.loli src="data:image/jpg;base64,#{path}"
+        - else
+          img src="data:image/jpg;base64,#{path}"
 
